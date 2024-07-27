@@ -1,4 +1,4 @@
-//Q.2 Write a program to delete a element from the middle of an array.
+//Q.2 Write a program to delete a element from the given index of an array.
 #include<stdio.h>
 int main(){
     int A[20];
