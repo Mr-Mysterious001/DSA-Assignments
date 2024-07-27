@@ -1,3 +1,4 @@
+//Q.1 Write a program to insert an element in the array at a given index.
 #include<stdio.h>
 int main(){
     int A[20];
