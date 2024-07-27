@@ -1,3 +1,4 @@
+//Q.3 Write a menu program to insert, delete, input and display the array.
 #include<stdio.h>
 #include<stdlib.h>
 int A[20],l=4;
