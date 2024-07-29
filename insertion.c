@@ -8,6 +8,7 @@ int main(){
     printf("Enter new number");
     scanf("%d",&a);
     printf("Enter index number");
+	scanf("%d", &a);
     for(i=l+1;i<=0;i++)
     {
         if(i==n)
