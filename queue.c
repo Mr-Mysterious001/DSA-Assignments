@@ -4,8 +4,8 @@
 #include<ctype.h>
 #define MAX 5
 char queue[MAX];
-front=-1;
-rear=-1;
+int front=-1;
+int rear=-1;
 void push(char str) {
     if (rear == MAX - 1) {
         printf("Stack is full\n");
