@@ -3,11 +3,11 @@
 #include<string.h>
 #include<ctype.h>
 #define MAX 5
-char queue[MAX];
+int queue[MAX];
 int front=-1;
 int rear=-1;
-void push(char str) {
-    if (rear == MAX - 1) {
+void push(int str) {
+    if (rear+1==front || (front==0 && rear==MAX-1)) {
         printf("Stack is full\n");
     } else {
         rear++;
@@ -15,11 +15,11 @@ void push(char str) {
     }
 }
 void pop(){
-    if(front>rear || front==-1){
+    if(front==-1){
         printf("Queue is empty\n");
     }
     else{
-        printf("Poped element is %c\n",queue[front]);
+        printf("Poped element is %d\n",queue[front]);
         front++;
     }
 }
@@ -29,21 +29,21 @@ void display(){
     }
     else{
         for(int i=front;i<=rear;i++){
-            printf("%c ",queue[i]);
+            printf("%d ",queue[i]);
         }
         printf("\n");
     }
 }
 int main(){
     int choice;
-    char str;
+    int str;
     while(1){
         printf("1.Push\n2.Pop\n3.Display\n4.Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch(choice){
             case 1:
                 printf("Enter the element to push: ");
-                scanf(" %c",&str);
+                scanf(" %d",&str);
                 push(str);
                 break;
             case 2:
