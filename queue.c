@@ -9,6 +9,10 @@ int rear=-1;
 void push(int str) {
     if (rear+1==front || (front==0 && rear==MAX-1)) {
         printf("Stack is full\n");
+    } else if(front==-1){
+        front=0;
+        rear=0;
+        queue[rear]=str;
     } else {
         rear++;
         queue[rear] = str;
