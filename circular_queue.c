@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
 #define MAX 5
 
@@ -9,47 +7,111 @@ int queue[MAX];
 int front = -1;
 int rear = -1;
 
-void push(int str) {
-    if ((rear == MAX - 1&&front==0) || (rear + 1 == front)) {
+void push(int num)
+{
+    if ((front == 0 && rear == MAX - 1) || front == rear + 1)
+    {
         printf("Queue is full\n");
-    } else if (front == -1) {
+    }
+    else
+    {
+        if (front == -1 && rear == -1)
+        {
             front = 0;
             rear = 0;
-            queue[rear] = str;
         }
-        else{
-            rear = (rear + 1) % MAX;
-        queue[rear] = str;
+        else if (rear == MAX - 1 && front != 0)
+        {
+            rear = 0;
         }
-        
-    }
-
-void pop() {
-    if (front == -1) {
-        printf("Queue is empty\n");
-    } else {
-        printf("Popped element is %d\n", queue[front]);
-        if (front == rear) {
-            front = -1;
-            rear = -1;
-        } else {
-            front = (front + 1) % MAX;
+        else
+        {
+            rear++;
         }
+        queue[rear] = num;
     }
 }
 
-void display() {
-    if (front == -1) {
-        printf("Queue is empty\n");
-    } else {
-        int i = front;
-        while (1) {
-            printf("%d ", queue[i]);
-            if (i == rear) {
-                break;
+    void pop()
+    {
+        if (front == -1)
+        {
+            printf("Queue is empty\n");
+        }
+        else
+        {
+            printf("Popped element is %d\n", queue[front]);
+            if (front == rear)
+            {
+                front = -1;
+                rear = -1;
             }
-            i = (i + 1) % MAX;
+            else if (front == MAX - 1)
+            {
+                front = 0;
+            }
+            else
+            {
+                front++;
+            }
         }
-        printf("\n");
     }
-}
+
+    void display()
+    {
+        if (front == -1)
+        {
+            printf("Queue is empty\n");
+        }
+        else
+        {
+            int i = front;
+            while (1)
+            {
+                printf("%d ", queue[i]);
+                if (i == rear)
+                {
+                    break;
+                }
+                if (i == MAX - 1)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            printf("\n");
+        }
+    }
+
+    int main()
+    {
+        int choice;
+        int num;
+        while (1)
+        {
+            printf("1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
+            scanf("%d", &choice);
+            switch (choice)
+            {
+            case 1:
+                printf("Enter the element to push: ");
+                scanf("%d", &num);
+                push(num);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("Invalid choice\n");
+            }
+        }
+        return 0;
+    }
