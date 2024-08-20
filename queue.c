@@ -19,7 +19,7 @@ void push(int str) {
     }
 }
 void pop(){
-    if(front==-1){
+    if(front==-1||front>rear){
         printf("Queue is empty\n");
     }
     else{
