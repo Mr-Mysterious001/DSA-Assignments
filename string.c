@@ -6,28 +6,37 @@
 char stack[MAX];
 int top = -1;
 
-void push(char value) {
-    if (top == MAX - 1) {
+void push(char value)
+{
+    if (top == MAX - 1)
+    {
         printf("Stack Overflow\n");
-    } else {
+    }
+    else
+    {
         top++;
         stack[top] = value;
     }
 }
 
-char pop() {
-    if (top == -1) {
+char pop()
+{
+    if (top == -1)
+    {
         printf("Stack Underflow\n");
         return -1;
-    } else {
+    }
+    else
+    {
         char value = stack[top];
         top--;
         return value;
     }
 }
-int main() {
-    char str[MAX]="";
-    char str1[MAX]="";
+int main()
+{
+    char str[MAX] = "";
+    char str1[MAX] = "";
     printf("Enter a string: ");
     scanf("%s", str);
     for (int i = 0; i < strlen(str); i++)
